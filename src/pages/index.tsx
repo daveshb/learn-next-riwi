@@ -12,9 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-  const product: string = "moto";
-  console.log(product);
-
+  
   function fizzBuzz(limit: number): void {
     for (let i = 1; i <= limit; i++) {
       if (i % 3 === 0 && i % 5 === 0) {
