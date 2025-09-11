@@ -16,6 +16,7 @@ export default function Home() {
   const product:string = "moto";
   console.log(product)
   console.log(product)
+  console.log(product)
 
   return (
     <div
