@@ -24,3 +24,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.miButton{
+  border-radius:  14px;
+  padding: 10px;
+}
+
+.miButton:hover{
+  cursor: pointer;
+  opacity: .5;
+}
