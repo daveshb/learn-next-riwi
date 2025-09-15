@@ -35,3 +35,23 @@ body {
   cursor: pointer;
   opacity: .5;
 }
+
+.list{
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.list-item{
+  width: 350px;
+  height: 400px;
+  background-color: bisque;
+  color: #0a0a0a;
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.list-isActive{
+  display: flex;
+}
