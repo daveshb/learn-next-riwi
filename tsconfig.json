@@ -18,5 +18,7 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "experimentalDecorators": true,
+  "emitDecoratorMetadata": false,
+  "exclude": ["node_modules"] 
 }
