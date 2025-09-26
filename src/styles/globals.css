@@ -3,26 +3,28 @@
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
 
+@import './components/card.css';
+@import './components/button.css';
 
 
-.miButton{
-  border-radius:  14px;
+.miButton {
+  border-radius: 14px;
   padding: 10px;
 }
 
-.miButton:hover{
+.miButton:hover {
   cursor: pointer;
-  opacity: .5;
+  opacity: 0.5;
 }
 
-.list{
+.list {
   gap: 10px;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.list-item{
+.list-item {
   width: 350px;
   height: 400px;
   background-color: bisque;
@@ -31,6 +33,8 @@
   padding: 10px;
 }
 
-.list-isActive{
+.list-isActive {
   display: flex;
 }
+
+
