@@ -1,5 +1,4 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Users = {
@@ -10,8 +9,6 @@ type Users = {
 type UsersResponse ={
   users:  Users[]
 }
-
-
 
 export default function handler(
   req: NextApiRequest,

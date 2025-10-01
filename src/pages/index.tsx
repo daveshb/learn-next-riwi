@@ -1,13 +1,28 @@
 import { MiButton } from "@/components/button/Button";
 import { ToastContainer } from "react-toastify";
 import { CgAdidas } from "react-icons/cg";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { notification } from "@/helpers/utils";
 import { Car } from "lucide-react";
 import { Card } from "@/components/card/Card";
+import { getProperties } from "@/services/properties";
 
 export default function Home() {
   const [loader, setLoader] = useState(false);
+
+
+
+
+
+const [properties, setProperties] = useState([])
+
+
+
+
+
+
+
+
 
   const handlerClick = () => {
     setLoader(true);
@@ -48,12 +63,57 @@ export default function Home() {
     },
   ];
 
+  console.log('desde front')
+
+
+
+
+
+
+
+
+
+
+  const handleClick = async () => {
+   const response = await getProperties();
+   console.log(response.data)
+
+   setProperties(response.data)
+
+  }
+
+
+
+  
+
+
+
+
+
+
+
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const data = await getProperties();
+  //     console.log(data);
+  //   }
+  //   fetchData();
+  // }, []);
+  
+
   return (
     <div>
       <div>
         <div>Hola mundo</div>
+        <div>Robinsony antony</div>
         <div className="flex gap-2">
-          {/* <MiButton disabled text={"cancelar"} icon={"X"} click={ ()=>notification("ingreso al sistema","error",2000) } /> */}
+          {/* <MiButton text={"llamar endpoin"} icon={""} click={ handleClick } /> */}
+        <button onClick={handleClick}>
+          llamar endpoint
+        </button>
+
+
         </div>
         <div className="flex gap-2">
           {aves.map((ave, index) => (
