@@ -1,20 +1,18 @@
-import { useRouter } from "next/router";
-import { ToastContainer } from "react-toastify";
+import { useState } from "react";
+
+const Dashboard = () => {
+
+  const [inputName, setInputName] = useState('')
 
 
- const Dashboard = () => {
-
-    const router = useRouter()
-
-    console.log(router.query.notify)
 
   return (
     <>
-    <div className="h1">Dashboard</div>
-
-        <ToastContainer />
+      <div className="h1">Dashboard</div>
+      <label>Nombre</label>
+      <input onChange={(e)=>{setInputName(e.target.value)}}/>
     </>
-  )
-}
+  );
+};
 
 export default Dashboard;

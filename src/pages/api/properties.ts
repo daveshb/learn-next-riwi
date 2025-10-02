@@ -37,13 +37,14 @@ export default async function handler(
     }
 
     dbConnection();
-
+    
     if (req.method === "GET") {
+
       const data = await Properties.find();
 
       res.status(200).json({
         ok: true,
-        data: data as Property[],
+        miInfo: data as Property[],
       });
     }
 
