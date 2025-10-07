@@ -1,18 +1,21 @@
 import { JSX, useState } from "react";
-import { MyContext } from "./Context";
+import { MyContext, UserLog } from "./Context";
 
 interface props {
   children: JSX.Element | JSX.Element[];
 }
 
 export const Provider = ({ children }: props) => {
-  const [notificationState, setnotificationState] = useState("");
+  const [userLogged, setUserLogged] = useState<UserLog>({} as UserLog);
+  const [isActive, setIsActive] = useState(false)
 
   return (
     <MyContext.Provider
       value={{
-        notificationState,
-        setnotificationState,
+        userLogged,
+        setUserLogged,
+        isActive,
+        setIsActive
       }}
     >
       {children}

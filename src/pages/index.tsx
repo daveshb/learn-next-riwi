@@ -1,140 +1,74 @@
 import { ToastContainer } from "react-toastify";
-import { useEffect, useState } from "react";
-import { Card } from "@/components/card/Card";
-import { getProperties } from "@/services/properties";
+import { Button, Input } from "@heroui/react";
+import { useContext, useState } from "react";
+import { useRouter } from "next/router";
+import { notification } from "@/helpers/utils";
+import { MyContext } from "@/context/Context";
 
-const aves = [
-  {
-    color: "green",
-    title: "El condor",
-    imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSergtUzQGvnSQo7sLRRqvuKBG9Mw5Egen1FA&s",
-    description: "El condor herido",
-  },
-  {
-    color: "white",
-    title: "un pajarito",
-    imageUrl:
-      "https://humanidades.com/wp-content/uploads/2017/03/pajaro-azul-e1563758291533.jpg",
-    description: "El pajarito",
-  },
-  {
-    color: "green",
-    title: "guacamaya",
-    imageUrl:
-      "https://content.nationalgeographic.com.es/medio/2022/12/12/aves-1_0931d689_221212154441_1280x720.jpg",
-    description: "guacamaya herida",
-  },
-  {
-    color: "white",
-    title: "El condor",
-    imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSergtUzQGvnSQo7sLRRqvuKBG9Mw5Egen1FA&s",
-    description: "El condor herido",
-  },
-];
-
-interface propertyProps {
-  _id:string
-  name: string,
-  value: number,
-  img: string
-}
-
-
-interface dataProperties {
-  ok :string,
-  miInfo: propertyProps[]
-}
-
+const userLogueado = {
+  name: "david",
+  role: "admin",
+  isActive: true,
+  date: "24/12/2025",
+};
 
 export default function Home() {
-  const [dataProperties, setDataProperties] = useState({} as dataProperties);
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
 
-  const [count, setCount] = useState(0);
+  const { setUserLogged, setIsActive, isActive } = useContext(MyContext);
 
+  const router = useRouter();
 
-
-
-
-  // const handleClick = async () => {
-  //   const response = await getProperties();
-  //   setDataProperties(response);
-  // };
-
-  useEffect(() => {
-    // handleClick()
-    const fechData = async () => {
-      const response = await getProperties();
-      setDataProperties(response);
-    };
-    fechData();
-  }, []);
-
-  // 0, "", undefinded, null, []
-
-  console.log(dataProperties.miInfo);
-
-
-  const handlseSave = () =>{
-    //consumir su servicio
-
-    // createPrperty({
-    //   name: nameImput
-    //   Value: valueImput
-    //   img: imgInput
-    // })
-
-  }
-
-
+  const handleClick = async () => {
+    if (user === "david" && pass === "123456") {
+      setUserLogged(userLogueado);
+      notification("login exitoso", "success");
+      router.push("/dashboard");
+    }
+  };
 
   return (
-    <div>
-      <div>
-        <div>Hola mundo</div>
-        <div className="flex gap-2">
-          {/* <MiButton text={"llamar endpoin"} icon={""} click={ handleClick } /> */}
-          {/* <button onClick={handleClick}>llamar endpoint</button> */}
-          <button
-            onClick={() => {
-              setCount(count + 1);
-            }}
-          >
-            +1
-          </button>
-        </div>
-        <div className="flex gap-2">
-          {aves.map((ave, index) => (
-            <div key={index}>
-              <Card
-                title={ave.title}
-                color={ave.color}
-                imageUrl={ave.imageUrl}
-                description={ave.description}
-              />
-            </div>
-          ))}
-        </div>
+    <div className="flex items-center">
+      <div className="max-w-3/6">
+        <div>Login</div>
 
-        {dataProperties.ok && (
-          <div className="flex gap-2">
-            {dataProperties.miInfo.map((property) => (
-              <div key={property._id}>
-                <div>{property.name}</div>
-                <div>{property.value}</div>
-                <img src={property.img} alt={property.name} />
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-      <div>
+        <label>User</label>
+        <Input
+          label="User"
+          placeholder="Enter your user"
+          type="text"
+          onChange={(e) => {
+            setUser(e.target.value);
+          }}
+        />
 
-       
-       <button onClick={handlseSave} >guardar propiedad</button>
+        <label>User</label>
+        <Input
+          label="Password"
+          placeholder="Enter your password"
+          type="password"
+          onChange={(e) => {
+            setPass(e.target.value);
+          }}
+        />
+
+        <Button onPress={handleClick} className="mt-7" color="primary">
+          Login
+        </Button>
+
+        <Button
+          onPress={() => {
+            setIsActive(!isActive);
+          }}
+          className="mt-7"
+          color="primary"
+        >
+          Login
+        </Button>
+
+        {isActive ? <div>Esta activo</div> : <div>Esta desactivado</div>}
       </div>
-      <ToastContainer />
     </div>
   );
 }
