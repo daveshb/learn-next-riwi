@@ -6,6 +6,7 @@ interface MiButtonProps {
   disabled?: boolean;
   loading?: boolean;
   click?: () => void;
+  labelButton?: string
 }
 
 export const MiButton = ({
@@ -14,17 +15,21 @@ export const MiButton = ({
   disabled = false,
   loading = false,
   click,
+  labelButton
 }: MiButtonProps) => {
   return (
-    <button
-      onClick={click}
-      className={`components__button ${
-        disabled ? "components__button--disabled" : ""
-      } `}
-      disabled={disabled || loading}
-    >
-      <div>{loading ? "Cargando..." : text}</div>
-      <div>{icon}</div>
-    </button>
+    <div>
+      <label>{labelButton}</label>
+      <button
+        onClick={click}
+        className={`components__button ${
+          disabled ? "components__button--disabled" : ""
+        } `}
+        disabled={disabled || loading}
+      >
+        <div>{loading ? "Cargando..." : text}</div>
+        <div>{icon}</div>
+      </button>
+    </div>
   );
 };

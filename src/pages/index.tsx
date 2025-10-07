@@ -1,9 +1,7 @@
-import { MiButton } from "@/components/button/Button";
 import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
 import { Card } from "@/components/card/Card";
 import { getProperties } from "@/services/properties";
-import async from "./api/properties";
 
 const aves = [
   {

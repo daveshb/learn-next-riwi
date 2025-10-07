@@ -28,3 +28,10 @@ export const notification = (text: string,type: "error" | "success",time?: numbe
     });
   }
 };
+
+
+export const sum = (a: number, b: number) => a + b;
+
+export const isEven = (n: number) => n % 2 === 0;
+
+

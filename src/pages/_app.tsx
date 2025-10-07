@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   <HeroUIProvider>
       <Component {...pageProps} />
-    </HeroUIProvider>
+  </HeroUIProvider>
 
 
     </>
