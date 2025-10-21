@@ -1,14 +1,13 @@
-import Image from "next/image";
 import React from "react";
-
 interface CardProps {
-  color: "green" | "white" | "black" | string;
+  color: "green" | "white" | "black";
   title: string;
   imageUrl: string;
   description: string;
+  children?: React.ReactNode
 }
 
-export const Card = ({ color, title, imageUrl, description }: CardProps) => {
+export const Card = ({ color, title, imageUrl, description, children }: CardProps) => {
   return (
     <div
       className={
@@ -22,16 +21,13 @@ export const Card = ({ color, title, imageUrl, description }: CardProps) => {
       }
     >
       <div className="card__leftSide">
+      <div>
+        {children}
+      </div>
         <div className="card__leftSide--title font-bold">{title}</div>
         <div className="card__leftSide--subtitle">{description}</div>
-
-        <div className="card__leftSide--link">
-          <div className="card__leftSide--icon"></div>
-          <div className="card__leftSide--text"></div>
-        </div>
       </div>
       <div className="card__rightSide">
-        {/* <Image className='card__rightSide--image' alt="asd"width={200} height={200} src={""}/> */}
         <img className="card__rightSide--image" alt="asd" src={imageUrl} />
       </div>
     </div>

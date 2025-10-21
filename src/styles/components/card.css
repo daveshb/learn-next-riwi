@@ -1,6 +1,7 @@
 .card{
   width: 200px;
-  height: 200px;
+  height: auto;
+  min-height: 200px;
   border-radius: 14px;
   padding: 10px;
   

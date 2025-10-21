@@ -8,7 +8,7 @@ interface props {
 export const Provider = ({ children }: props) => {
   const [userLogged, setUserLogged] = useState<UserLog>({} as UserLog);
   const [isActive, setIsActive] = useState(false)
-
+  
   return (
     <MyContext.Provider
       value={{

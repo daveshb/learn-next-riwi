@@ -1,37 +1,18 @@
 
 
 
+import axios from "axios";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import axios from "axios";
-
-// export async function getProperties() {
-//   try {
-//     const response = await axios.get("http://localhost:3000/api/properties");
-//     return response.data;
-//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//   } catch (error: any) {
-//     console.error("Error fetching properties:", error);
-//     throw error;
-//   }
-// }
+export async function getProperties() {
+  try {
+    const response = await axios.get("http://localhost:3000/api/properties");
+    return response.data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    console.error("Error fetching properties:", error);
+    throw error;
+  }
+}
 
 
 

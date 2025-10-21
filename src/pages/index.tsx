@@ -1,5 +1,5 @@
 import { ToastContainer } from "react-toastify";
-import { Button, Input } from "@heroui/react";
+import { Button, Input, Spinner, Switch } from "@heroui/react";
 import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { notification } from "@/helpers/utils";
@@ -56,16 +56,16 @@ export default function Home() {
         <Button onPress={handleClick} className="mt-7" color="primary">
           Login
         </Button>
-
-        <Button
-          onPress={() => {
-            setIsActive(!isActive);
-          }}
-          className="mt-7"
-          color="primary"
-        >
-          Login
-        </Button>
+        <div className="flex flex-col gap-2 mt-3">
+          <Switch isSelected={isActive} onValueChange={setIsActive}>
+            Airplane mode
+          </Switch>
+          <Spinner
+            classNames={{ label: "text-foreground mt-4" }}
+            label="wave"
+            variant="wave"
+          />
+        </div>
 
         {isActive ? <div>Esta activo</div> : <div>Esta desactivado</div>}
       </div>

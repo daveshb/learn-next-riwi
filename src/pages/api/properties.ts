@@ -44,7 +44,7 @@ export default async function handler(
 
       res.status(200).json({
         ok: true,
-        miInfo: data as Property[],
+        data: data as Property[],
       });
     }
 
